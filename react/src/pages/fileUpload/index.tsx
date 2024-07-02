@@ -17,7 +17,6 @@ export default function FileUpload() {
   function fileChange(event: React.ChangeEvent<HTMLInputElement>) {
     if (event.target.files) {
       const file = event.target.files[0];
-      console.log(file);
       const fileSliceArr = fileSlice(file);
       const fetchList: Promise<undefined>[] = [];
       fileSliceArr.forEach((fileFragments, index) => {

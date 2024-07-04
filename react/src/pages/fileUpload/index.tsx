@@ -3,7 +3,7 @@ import axios from "axios";
 
 export default function FileUpload() {
   function fileSlice(file: File) {
-    const singleSize = 1000 * 1024; // 100k
+    const singleSize = 1024 * 1024; // 设置分片大小为 1MB
     let startPos = 0;
     const sliceArr = [];
     while (startPos < file.size) {
@@ -35,7 +35,7 @@ export default function FileUpload() {
       Promise.all(fetchList).then(() => {
         axios({
           method: "POST",
-          url: "http://localhost:3000/buffer_merge",
+          url: "http://localhost:3000/stream_merge",
           data: {
             name: file.name,
           },
